@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/Tidally-Locked/static/css/main.d1b05096.chunk.css",
+    "main.js": "/Tidally-Locked/static/js/main.ac4f06d4.chunk.js",
+    "main.js.map": "/Tidally-Locked/static/js/main.ac4f06d4.chunk.js.map",
+    "runtime-main.js": "/Tidally-Locked/static/js/runtime-main.cec72232.js",
+    "runtime-main.js.map": "/Tidally-Locked/static/js/runtime-main.cec72232.js.map",
+    "static/js/2.77505096.chunk.js": "/Tidally-Locked/static/js/2.77505096.chunk.js",
+    "static/js/2.77505096.chunk.js.map": "/Tidally-Locked/static/js/2.77505096.chunk.js.map",
+    "index.html": "/Tidally-Locked/index.html",
+    "precache-manifest.290d619c869f7bb84718765aec35afe4.js": "/Tidally-Locked/precache-manifest.290d619c869f7bb84718765aec35afe4.js",
+    "service-worker.js": "/Tidally-Locked/service-worker.js",
+    "static/css/main.d1b05096.chunk.css.map": "/Tidally-Locked/static/css/main.d1b05096.chunk.css.map",
+    "static/js/2.77505096.chunk.js.LICENSE.txt": "/Tidally-Locked/static/js/2.77505096.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/Tidally-Locked/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cec72232.js",
+    "static/js/2.77505096.chunk.js",
+    "static/css/main.d1b05096.chunk.css",
+    "static/js/main.ac4f06d4.chunk.js"
+  ]
+}
