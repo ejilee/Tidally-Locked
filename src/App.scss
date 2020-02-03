@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css?family=Bree+Serif&display=swap");
+
+html {
+  box-sizing: border-box;
+  overflow-y: overlay;
+}
+
+.App {
+  background-color: #121215;
+  min-height: 100vh;
+  font-size: 1rem;
+  color: white;
+  padding: 40px;
+}
+
+.logoImg {
+  height: 5rem;
+  pointer-events: none;
+  display: inline-block;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .logoImg {
+    /* animation: App-logo-spin infinite 20s linear; */
+  }
+}
+
+.logoText {
+  position: relative;
+  padding: 1rem 1.2rem;
+  font-size: 2rem;
+  font-family: "Bree Serif", serif;
+  letter-spacing: 0.1rem;
+  color: #fbff7f;
+  line-height: 0;
+  white-space: nowrap;
+}
+
+.logoText:before,
+.logoText:after {
+  content: "";
+  position: relative;
+  left: 50%;
+  top: -250%;
+  width: 200%;
+  height: 200%;
+  background-color: #999;
+}
+
+.logoText:hover {
+}
+
+.App-header {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.App-body {
+  width: 100%;
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+.App-footer {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  display: block;
+  font-size: 0.8em;
+  margin-top: 20px;
+  color: #666;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

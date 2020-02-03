@@ -1,0 +1,18 @@
+.spaceContainer {
+  min-height: 400px;
+  border: dotted #fbff7f 1px;
+  position: relative;
+  overflow: hidden;
+
+  .planetContainer {
+    .planetBody {
+      position: absolute;
+      background-color: #3f3;
+      width: 90px;
+      height: 90px;
+      border-radius: 90px;
+      top: calc(50% - 30px);
+      left: calc(50% - 30px);
+    }
+  }
+}
