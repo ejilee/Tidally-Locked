@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3b04b469bd594edc5ed7feb87966c92f",
+    "revision": "a04831faeb217880f36609eb68792d0a",
     "url": "/Tidally-Locked/index.html"
   },
   {
-    "revision": "7e2a895e485e632c9895",
-    "url": "/Tidally-Locked/static/css/main.eb6e897b.chunk.css"
+    "revision": "8f01cc4b6e886d7e9c7e",
+    "url": "/Tidally-Locked/static/css/main.eafd1a98.chunk.css"
   },
   {
     "revision": "7e828e7750c7411e6e1a",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Tidally-Locked/static/js/2.c57dbc4d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "7e2a895e485e632c9895",
+    "revision": "8f01cc4b6e886d7e9c7e",
     "url": "/Tidally-Locked/static/js/main.696f64bc.chunk.js"
   },
   {
