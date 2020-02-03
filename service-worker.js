@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Tidally-Locked/precache-manifest.290d619c869f7bb84718765aec35afe4.js"
+  "/Tidally-Locked/precache-manifest.12cf07abf871e348b6fddec53d2a3e76.js"
 );
 
 self.addEventListener('message', (event) => {
