@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "837d2aa4b93410ca905bd8ec20a6186b",
+    "revision": "8b43eb642c78e09ce9f72630f5802f85",
     "url": "/Tidally-Locked/index.html"
   },
   {
-    "revision": "53001c4f37b6bdca45c2",
+    "revision": "e77035152560c1179aa6",
     "url": "/Tidally-Locked/static/css/main.0212a9a4.chunk.css"
   },
   {
@@ -16,15 +16,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Tidally-Locked/static/js/2.aaba43da.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "53001c4f37b6bdca45c2",
-    "url": "/Tidally-Locked/static/js/main.510da55d.chunk.js"
+    "revision": "e77035152560c1179aa6",
+    "url": "/Tidally-Locked/static/js/main.abb03ea8.chunk.js"
   },
   {
     "revision": "1944a4eac9cc25f89e04",
     "url": "/Tidally-Locked/static/js/runtime-main.cec72232.js"
   },
   {
-    "revision": "8b7e255d5d18535e923194ba07852cd0",
-    "url": "/Tidally-Locked/static/media/logo.8b7e255d.svg"
+    "revision": "1a62cf7ae2556d9d5de5f18a6837f37c",
+    "url": "/Tidally-Locked/static/media/logo.1a62cf7a.svg"
   }
 ]);
