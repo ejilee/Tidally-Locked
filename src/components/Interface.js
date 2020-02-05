@@ -1,10 +1,12 @@
 import React, { useState, useCallback } from "react";
-import "./Interface.scss";
 
-const Interface = ({ rotPer, orbPer, settingRotOrbPer }) => {
+const Interface = ({ rotPer, orbPer, orbRad, mooSiz, plaSiz, setRotOrbPer, setOrbRad, setBodySize }) => {
   const [form, setForm] = useState({
-    rotPer: rotPer,
-    orbPer: orbPer
+    rotationalPeriod: rotPer,
+    orbitalPeriod: orbPer,
+    orbitRadius: orbRad,
+    moonSize: mooSiz,
+    planetSize: plaSiz
   });
 
   const changeInputValue = useCallback(
@@ -20,20 +22,31 @@ const Interface = ({ rotPer, orbPer, settingRotOrbPer }) => {
 
   const onSubmit = useCallback(
     e => {
-      settingRotOrbPer(form);
+      setRotOrbPer(form.rotationalPeriod, form.orbitalPeriod);
+      setOrbRad(form.orbitRadius);
+      setBodySize(form.moonSize, form.planetSize);
       e.preventDefault();
     },
-    [settingRotOrbPer, form]
+    [setRotOrbPer,setOrbRad,setBodySize, form]
   );
 
   return (
     <div className="uiBox">
       <form onSubmit={onSubmit}>
+        Orbit radius :<br />
+        <input
+          type="number"
+          name="orbitRadius"
+          value={form.orbitRadius}
+          onChange={changeInputValue}
+        />
+        <br />
+        <br />
         Rotational period :<br />
         <input
           type="number"
-          name="rotPer"
-          value={form.rotPer}
+          name="rotationalPeriod"
+          value={form.rotationalPeriod}
           onChange={changeInputValue}
         />
         <br />
@@ -41,8 +54,26 @@ const Interface = ({ rotPer, orbPer, settingRotOrbPer }) => {
         Orbital period :<br />
         <input
           type="number"
-          name="orbPer"
-          value={form.orbPer}
+          name="orbitalPeriod"
+          value={form.orbitalPeriod}
+          onChange={changeInputValue}
+        />
+        <br />
+        <br />
+        Earth size :<br />
+        <input
+          type="number"
+          name="planetSize"
+          value={form.planetSize}
+          onChange={changeInputValue}
+        />
+        <br />
+        <br />
+        Moon size :<br />
+        <input
+          type="number"
+          name="moonSize"
+          value={form.moonSize}
           onChange={changeInputValue}
         />
         <br />

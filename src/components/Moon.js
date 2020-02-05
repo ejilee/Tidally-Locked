@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 const StyledMoon = styled.div`
   position: absolute;
@@ -12,23 +12,23 @@ const StyledMoon = styled.div`
   animation-timing-function: linear;
   @keyframes MOON-REVOLUTION {
     0% {
-      transform: rotate(0deg) translate(150px) rotate(0deg);
+      transform: rotate(0deg) translate(${props => props.orbRad + "px" || "150px"}) rotate(0deg);
     }
     100% {
-      transform: rotate(-360deg) translate(150px) rotate(360deg);
+      transform: rotate(-360deg) translate(${props => props.orbRad + "px" || "150px"}) rotate(360deg);
     }
   }
 `;
 
 const MoonBody = styled.div`
   position: absolute;
-  background-color: #ff3;
-  width: 30px;
-  height: 30px;
+  background-color: #f6ff80;
+  width: ${props => props.mooSiz + "px" || "30px"};
+  height: ${props => props.mooSiz + "px" || "30px"};
   overflow: hidden;
-  border-radius: 30px;
-  top: calc(50% - 15px);
-  left: calc(50% - 15px);
+  border-radius: ${props => props.mooSiz + "px" || "30px"};
+  top: calc(50% -  ${props => props.mooSiz/2 + "px" || "15px"});
+  left: calc(50% -  ${props => props.mooSiz/2 + "px" || "15px"});
   transform-origin: 50% 50%;
   animation-name: MOON-ROTATION;
   animation-duration: ${props => props.rotPer + "s" || "0s"};
@@ -50,14 +50,14 @@ const MoonFace = styled.div`
   position: absolute;
   top: 30%;
   left: 0;
-  background-color: ${props => props.faceColor || "#000"};
+  background-color: #b42e2e;
 `;
 
-const Moon = ({ rotPer, orbPer }) => {
+const Moon = ({ rotPer, orbPer, orbRad, mooSiz }) => {
   return (
-    <StyledMoon orbPer={orbPer}>
-      <MoonBody rotPer={rotPer}>
-        <MoonFace faceColor="blue"></MoonFace>
+    <StyledMoon orbPer={orbPer} orbRad={orbRad}>
+      <MoonBody rotPer={rotPer} mooSiz={mooSiz}>
+        <MoonFace></MoonFace>
       </MoonBody>
     </StyledMoon>
   );

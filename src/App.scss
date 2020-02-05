@@ -6,10 +6,10 @@ html {
 }
 
 .App {
-  background-color: #121215;
+  background-color: #e9e9e9;
   min-height: 100vh;
   font-size: 1rem;
-  color: white;
+  color: #333;
   padding: 40px;
 }
 
@@ -21,7 +21,8 @@ html {
 
 @media (prefers-reduced-motion: no-preference) {
   .logoImg {
-    /* animation: App-logo-spin infinite 20s linear; */
+    height: 80px;
+    width: 80px;
   }
 }
 
@@ -31,23 +32,9 @@ html {
   font-size: 2rem;
   font-family: "Bree Serif", serif;
   letter-spacing: 0.1rem;
-  color: #fbff7f;
+  color: #333;
   line-height: 0;
   white-space: nowrap;
-}
-
-.logoText:before,
-.logoText:after {
-  content: "";
-  position: relative;
-  left: 50%;
-  top: -250%;
-  width: 200%;
-  height: 200%;
-  background-color: #999;
-}
-
-.logoText:hover {
 }
 
 .App-header {
