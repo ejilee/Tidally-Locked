@@ -1,7 +1,6 @@
 .spaceContainer {
-  min-height: 500px;
-  border: dotted #fbff7f 1px;
-  background-color: #1e1e27;
+  min-height: 600px;
+  background: #222222 radial-gradient(circle, rgba(17, 18, 21, 0.5) 0%, #1818214d 80%, #222222 100%);
   position: relative;
   overflow: hidden;
 
@@ -11,9 +10,9 @@
     top: 10px;
     left: 10px;
     width: 200px;
-    height: 400px;
-    border: 1px dotted #fff;
+    height: calc(100% - 40px);
     color: #FFF;
+    background-color: rgba(255,255,255,0.05);
   }
 
 }

@@ -25,7 +25,6 @@ const MoonBody = styled.div`
   background-color: #f6ff80;
   width: ${props => props.mooSiz + "px" || "30px"};
   height: ${props => props.mooSiz + "px" || "30px"};
-  overflow: hidden;
   border-radius: ${props => props.mooSiz + "px" || "30px"};
   top: calc(50% -  ${props => props.mooSiz/2 + "px" || "15px"});
   left: calc(50% -  ${props => props.mooSiz/2 + "px" || "15px"});
@@ -44,21 +43,33 @@ const MoonBody = styled.div`
   }
 `;
 
-const MoonFace = styled.div`
-  width: 40%;
-  height: 40%;
+const MoonLight = styled.div`
   position: absolute;
-  top: 30%;
-  left: 0;
-  background-color: #b42e2e;
+  background: linear-gradient(${props => props.sunDir + "deg" || "120deg"}, rgba(255,245,210,.3) 0%, rgba(255,255,255,.5) 20%, rgba(255,255,255,.1) 50%, rgba(30,20,20,.8) 100%);
+  width: ${props => props.mooSiz + "px" || "30px"};
+  height: ${props => props.mooSiz + "px" || "30px"};
+  overflow: hidden;
+  border-radius: ${props => props.mooSiz + "px" || "30px"};
+  top: calc(50% -  ${props => props.mooSiz/2 + "px" || "15px"});
+  left: calc(50% -  ${props => props.mooSiz/2 + "px" || "15px"});
 `;
 
-const Moon = ({ rotPer, orbPer, orbRad, mooSiz }) => {
+const MoonFace = styled.div`
+  width: 40%;
+  height: 20%;
+  position: absolute;
+  top: 35%;
+  left: -20%;
+  background-color: #FFF;
+`;
+
+const Moon = ({ rotPer, orbPer, orbRad, mooSiz, sunDir }) => {
   return (
     <StyledMoon orbPer={orbPer} orbRad={orbRad}>
       <MoonBody rotPer={rotPer} mooSiz={mooSiz}>
         <MoonFace></MoonFace>
       </MoonBody>
+      <MoonLight mooSiz={mooSiz} sunDir={sunDir} />
     </StyledMoon>
   );
 };

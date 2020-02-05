@@ -1,12 +1,13 @@
 import React, { useState, useCallback } from "react";
 
-const Interface = ({ rotPer, orbPer, orbRad, mooSiz, plaSiz, setRotOrbPer, setOrbRad, setBodySize }) => {
+const Interface = ({ rotPer, orbPer, orbRad, mooSiz, plaSiz, sunDir, setRotOrbPer, setOrbRad, setBodySize, setSunDirecttion }) => {
   const [form, setForm] = useState({
     rotationalPeriod: rotPer,
     orbitalPeriod: orbPer,
     orbitRadius: orbRad,
     moonSize: mooSiz,
-    planetSize: plaSiz
+    planetSize: plaSiz,
+    sunDirection: sunDir,
   });
 
   const changeInputValue = useCallback(
@@ -25,9 +26,10 @@ const Interface = ({ rotPer, orbPer, orbRad, mooSiz, plaSiz, setRotOrbPer, setOr
       setRotOrbPer(form.rotationalPeriod, form.orbitalPeriod);
       setOrbRad(form.orbitRadius);
       setBodySize(form.moonSize, form.planetSize);
+      setSunDirecttion(form.sunDirection);
       e.preventDefault();
     },
-    [setRotOrbPer,setOrbRad,setBodySize, form]
+    [setRotOrbPer,setOrbRad,setBodySize, setSunDirecttion, form]
   );
 
   return (
@@ -74,6 +76,15 @@ const Interface = ({ rotPer, orbPer, orbRad, mooSiz, plaSiz, setRotOrbPer, setOr
           type="number"
           name="moonSize"
           value={form.moonSize}
+          onChange={changeInputValue}
+        />
+        <br />
+        <br />
+        Direction of Light :<br />
+        <input
+          type="number"
+          name="sunDirection"
+          value={form.sunDirection}
           onChange={changeInputValue}
         />
         <br />

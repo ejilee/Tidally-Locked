@@ -6,11 +6,11 @@ html {
 }
 
 .App {
-  background-color: #e9e9e9;
+  background-color: #222;
   min-height: 100vh;
   font-size: 1rem;
-  color: #333;
-  padding: 40px;
+  color: #FFF;
+  padding: 20px;
 }
 
 .logoImg {
@@ -32,29 +32,22 @@ html {
   font-size: 2rem;
   font-family: "Bree Serif", serif;
   letter-spacing: 0.1rem;
-  color: #333;
+  color: #EEE;
   line-height: 0;
   white-space: nowrap;
 }
 
-.App-header {
+header, section, footer{
   width: 100%;
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
+}
+
+.App-header {
   display: flex;
 }
 
-.App-body {
-  width: 100%;
-  max-width: 900px;
-  margin: 20px auto;
-}
-
 .App-footer {
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  display: block;
   font-size: 0.8em;
   margin-top: 20px;
   color: #666;

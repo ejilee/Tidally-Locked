@@ -11,10 +11,22 @@ const PlanetBody = styled.div`
   left: calc(50% -  ${props => props.plaSiz/2 + "px" || "45px"});
 `
 
-const Planet = ({plaSiz}) => {
+const PlanetLight = styled.div`
+  position: absolute;
+  background: linear-gradient(${props => props.sunDir + "deg" || "120deg"}, rgba(255,245,210,.3) 0%, rgba(255,255,255,.5) 20%, rgba(255,255,255,.1) 50%, rgba(30,20,20,.8) 100%);
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  top: 0;
+  left: 0;
+`;
+
+const Planet = ({plaSiz, sunDir}) => {
   return (
     <div className="planetContainer">
-      <PlanetBody plaSiz={plaSiz} />
+      <PlanetBody plaSiz={plaSiz}>
+        <PlanetLight sunDir={sunDir} />
+      </PlanetBody>
     </div>
   );
 };
