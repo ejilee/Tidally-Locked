@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a90536bab293bb8bf101c97bf598dc85",
+    "revision": "837d2aa4b93410ca905bd8ec20a6186b",
     "url": "/Tidally-Locked/index.html"
   },
   {
-    "revision": "c4e8b16d2963f5153d61",
-    "url": "/Tidally-Locked/static/css/main.e11f65a4.chunk.css"
+    "revision": "53001c4f37b6bdca45c2",
+    "url": "/Tidally-Locked/static/css/main.0212a9a4.chunk.css"
   },
   {
-    "revision": "0d65e409a5d2a26677cf",
-    "url": "/Tidally-Locked/static/js/2.c14ce3d4.chunk.js"
+    "revision": "9d8ab7c3d968eeae7a35",
+    "url": "/Tidally-Locked/static/js/2.aaba43da.chunk.js"
   },
   {
     "revision": "928d7b5eb39d16fe9a880722c974b51e",
-    "url": "/Tidally-Locked/static/js/2.c14ce3d4.chunk.js.LICENSE.txt"
+    "url": "/Tidally-Locked/static/js/2.aaba43da.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "c4e8b16d2963f5153d61",
-    "url": "/Tidally-Locked/static/js/main.7842605e.chunk.js"
+    "revision": "53001c4f37b6bdca45c2",
+    "url": "/Tidally-Locked/static/js/main.510da55d.chunk.js"
   },
   {
     "revision": "1944a4eac9cc25f89e04",
