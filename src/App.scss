@@ -14,27 +14,18 @@ html {
 }
 
 .logoImg {
-  height: 5rem;
+  height: 4rem;
   pointer-events: none;
-  display: inline-block;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .logoImg {
-    height: 80px;
-    width: 80px;
-  }
+  margin-left: 10px;
+  margin-right: 12px;
 }
 
 .logoText {
-  position: relative;
-  padding: 1rem 1.2rem;
+  margin: 0;
   font-size: 2rem;
   font-family: "Bree Serif", serif;
   letter-spacing: 0.1rem;
   color: #EEE;
-  line-height: 0;
-  white-space: nowrap;
 }
 
 header, section, footer{
@@ -45,6 +36,8 @@ header, section, footer{
 
 .App-header {
   display: flex;
+  margin-bottom: 10px;
+  margin-top: 30px;
 }
 
 .App-footer {
