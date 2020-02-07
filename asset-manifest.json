@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/Tidally-Locked/static/css/main.c5039d9e.chunk.css",
-    "main.js": "/Tidally-Locked/static/js/main.836f13f5.chunk.js",
-    "main.js.map": "/Tidally-Locked/static/js/main.836f13f5.chunk.js.map",
+    "main.css": "/Tidally-Locked/static/css/main.c51696e2.chunk.css",
+    "main.js": "/Tidally-Locked/static/js/main.2dcbee06.chunk.js",
+    "main.js.map": "/Tidally-Locked/static/js/main.2dcbee06.chunk.js.map",
     "runtime-main.js": "/Tidally-Locked/static/js/runtime-main.cec72232.js",
     "runtime-main.js.map": "/Tidally-Locked/static/js/runtime-main.cec72232.js.map",
     "static/js/2.aaba43da.chunk.js": "/Tidally-Locked/static/js/2.aaba43da.chunk.js",
     "static/js/2.aaba43da.chunk.js.map": "/Tidally-Locked/static/js/2.aaba43da.chunk.js.map",
     "index.html": "/Tidally-Locked/index.html",
-    "precache-manifest.159ddabcdbe0b3bc1a912a46e8ed2c9b.js": "/Tidally-Locked/precache-manifest.159ddabcdbe0b3bc1a912a46e8ed2c9b.js",
+    "precache-manifest.b02d636a8425a15171a8cfd9f66cc2ee.js": "/Tidally-Locked/precache-manifest.b02d636a8425a15171a8cfd9f66cc2ee.js",
     "service-worker.js": "/Tidally-Locked/service-worker.js",
-    "static/css/main.c5039d9e.chunk.css.map": "/Tidally-Locked/static/css/main.c5039d9e.chunk.css.map",
+    "static/css/main.c51696e2.chunk.css.map": "/Tidally-Locked/static/css/main.c51696e2.chunk.css.map",
     "static/js/2.aaba43da.chunk.js.LICENSE.txt": "/Tidally-Locked/static/js/2.aaba43da.chunk.js.LICENSE.txt",
     "static/media/logo.svg": "/Tidally-Locked/static/media/logo.300e0a62.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.cec72232.js",
     "static/js/2.aaba43da.chunk.js",
-    "static/css/main.c5039d9e.chunk.css",
-    "static/js/main.836f13f5.chunk.js"
+    "static/css/main.c51696e2.chunk.css",
+    "static/js/main.2dcbee06.chunk.js"
   ]
 }
