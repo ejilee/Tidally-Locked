@@ -1,56 +1,49 @@
 @import url("https://fonts.googleapis.com/css?family=Bree+Serif&display=swap");
 
 html {
-  box-sizing: border-box;
-  overflow-y: overlay;
+    box-sizing: border-box;
+    overflow-y: overlay;
 }
 
 .App {
-  background-color: #222;
-  min-height: 100vh;
-  font-size: 1rem;
-  color: #FFF;
-  padding: 20px;
+    min-height: 100vh;
+    font-size: 1rem;
+    background: #222;
+    color: #fff;
+    padding: 20px;
 }
 
 .logoImg {
-  height: 4rem;
-  pointer-events: none;
-  margin-left: 10px;
-  margin-right: 12px;
+    height: 4rem;
+    pointer-events: none;
+    margin-left: 10px;
+    margin-right: 12px;
 }
 
 .logoText {
-  margin: 0;
-  font-size: 2rem;
-  font-family: "Bree Serif", serif;
-  letter-spacing: 0.1rem;
-  color: #EEE;
+    margin: 0;
+    font-size: 2rem;
+    font-family: "Bree Serif", serif;
+    letter-spacing: 0.1rem;
+    color: #eee;
 }
 
-header, section, footer{
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+header,
+section,
+footer {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .App-header {
-  display: flex;
-  margin-bottom: 10px;
-  margin-top: 30px;
+    display: flex;
+    margin-bottom: 10px;
+    margin-top: 30px;
 }
 
 .App-footer {
-  font-size: 0.8em;
-  margin-top: 20px;
-  color: #666;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    font-size: 0.8em;
+    margin-top: 20px;
+    color: #666;
 }
