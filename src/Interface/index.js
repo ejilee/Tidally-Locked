@@ -51,7 +51,19 @@ const StyledInterface = styled.section`
   }
 `;
 
-const Interface = ({ appState, setRotOrbPer, setOrbRad, resetAll }) => {
+const Interface = ({
+  appState,
+  setRotOrbPer,
+  setOrbRad,
+  resetAll,
+  pauseAll,
+  resumeAll,
+  forceLock,
+  setBodySize,
+  setSunDirection,
+  toggleShadows,
+  toggleLaser,
+}) => {
   const {
     rotPer,
     orbPer,
@@ -60,8 +72,9 @@ const Interface = ({ appState, setRotOrbPer, setOrbRad, resetAll }) => {
     planRad,
     sunDir,
     tidLock,
-    statusOn,
-    statusMessage,
+    paused,
+    showShadows,
+    showLaser,
   } = appState;
   return (
     <StyledInterface className="app-ui">
@@ -69,15 +82,31 @@ const Interface = ({ appState, setRotOrbPer, setOrbRad, resetAll }) => {
         rotPer={rotPer}
         orbPer={orbPer}
         tidLock={tidLock}
+        paused={paused}
         setRotOrbPer={setRotOrbPer}
         resetAll={resetAll}
+        pauseAll={pauseAll}
+        resumeAll={resumeAll}
+        forceLock={forceLock}
       />
       <div className="app-ui-divider--dyn" />
-      <Secondary orbRad={orbRad} setOrbRad={setOrbRad} />
+      <Secondary
+        orbRad={orbRad}
+        moonRad={moonRad}
+        planRad={planRad}
+        sunDir={sunDir}
+        showShadows={showShadows}
+        showLaser={showLaser}
+        setOrbRad={setOrbRad}
+        setBodySize={setBodySize}
+        setSunDirection={setSunDirection}
+        toggleShadows={toggleShadows}
+        toggleLaser={toggleLaser}
+      />
       <div className="app-ui-divider--hor" />
       <Description />
     </StyledInterface>
   );
 };
 
-export default Interface;
+export default React.memo(Interface);

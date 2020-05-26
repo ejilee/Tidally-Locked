@@ -16,4 +16,4 @@ const Orbit = ({ orbRad }) => {
   return <StyledOrbit orbRad={orbRad} />;
 };
 
-export default Orbit;
+export default React.memo(Orbit);

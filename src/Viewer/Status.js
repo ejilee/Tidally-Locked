@@ -45,4 +45,4 @@ const Status = ({ statusMessage, setStatusMessage }) => {
   return <StyledStatus>{statusMessage}</StyledStatus>;
 };
 
-export default Status;
+export default React.memo(Status);

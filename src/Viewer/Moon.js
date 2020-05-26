@@ -13,6 +13,7 @@ const StyledMoon = styled.div`
     animation-duration: ${(props) => props.rotPer + "s" || "0s"};
     animation-iteration-count: infinite;
     animation-timing-function: linear;
+    animation-play-state: ${(props) => props.animationState || "running"};
 
     @keyframes MOON-ROTATION {
       0% {
@@ -57,7 +58,7 @@ const StyledMoon = styled.div`
     border-bottom: 10px solid transparent;
     border-right: 20px solid #fff387;
     top: calc(50% - 10px);
-    left: -15px;
+    left: -12px;
   }
 
   .moon__body {
@@ -84,7 +85,19 @@ const StyledMoon = styled.div`
   }
 `;
 
-const Moon = ({ rotPer, orbPer, orbRad, moonRad, sunDir, tidLock }) => {
+const Moon = ({
+  rotPer,
+  orbPer,
+  orbRad,
+  moonRad,
+  sunDir,
+  tidLock,
+  paused,
+  showShadows,
+  showLaser,
+}) => {
+  const animationState = paused ? "paused" : "running";
+
   const StyledRevolution = styled.div`
     position: absolute;
     z-index: 200;
@@ -95,6 +108,7 @@ const Moon = ({ rotPer, orbPer, orbRad, moonRad, sunDir, tidLock }) => {
     animation-iteration-count: infinite;
     animation-timing-function: linear;
     animation-name: MOON-REVOLUTION;
+    animation-play-state: ${(props) => props.animationState || "running"};
 
     @keyframes MOON-REVOLUTION {
       0% {
@@ -109,23 +123,29 @@ const Moon = ({ rotPer, orbPer, orbRad, moonRad, sunDir, tidLock }) => {
   `;
 
   return (
-    <StyledRevolution orbPer={orbPer} orbRad={orbRad}>
+    <StyledRevolution
+      orbPer={orbPer}
+      orbRad={orbRad}
+      animationState={animationState}
+    >
       <StyledMoon
         orbPer={orbPer}
         rotPer={rotPer}
         orbRad={orbRad}
         moonRad={moonRad}
         sunDir={sunDir}
+        animationState={animationState}
       >
         <div className="moon__self">
-          {tidLock ? <div className="moon__lockline" /> : null}
+          {tidLock && showLaser ? <div className="moon__lockline" /> : null}
           <div className="moon__face" />
           <div className="moon__body" />
         </div>
-        <div className="moon__shade" />
+
+        {showShadows ? <div className="moon__shade" /> : ""}
       </StyledMoon>
     </StyledRevolution>
   );
 };
 
-export default Moon;
+export default React.memo(Moon);

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
 const StyledPanel = styled.div`
@@ -101,11 +101,19 @@ const StyledPanel = styled.div`
   }
 `;
 
-const Secondary = ({ orbRad, setOrbRad }) => {
-  //   const [orbRad, setOrbRad] = useState(200);
-
-  const handleRangeChange = () => {};
-
+const Secondary = ({
+  orbRad,
+  moonRad,
+  planRad,
+  sunDir,
+  showShadows,
+  showLaser,
+  setOrbRad,
+  setBodySize,
+  setSunDirection,
+  toggleShadows,
+  toggleLaser,
+}) => {
   return (
     <StyledPanel className="app-ui-secondary">
       <form className="secondaryOptions">
@@ -119,7 +127,10 @@ const Secondary = ({ orbRad, setOrbRad }) => {
             max="300"
             step="20"
             value={orbRad}
-            onChange={(e) => setOrbRad(Number(e.target.value))}
+            onChange={(e) => {
+              e.preventDefault();
+              setOrbRad(Number(e.target.value));
+            }}
           />
         </div>
         <div className="option">
@@ -128,11 +139,14 @@ const Secondary = ({ orbRad, setOrbRad }) => {
             type="range"
             id="orbRad"
             name="orbRad"
-            min="100"
-            max="300"
-            step="20"
-            value={orbRad}
-            onChange={(e) => setOrbRad(Number(e.target.value))}
+            min="0"
+            max="360"
+            step="10"
+            value={sunDir}
+            onChange={(e) => {
+              e.preventDefault();
+              setSunDirection(Number(e.target.value));
+            }}
           />
         </div>
         <div className="option">
@@ -141,11 +155,14 @@ const Secondary = ({ orbRad, setOrbRad }) => {
             type="range"
             id="orbRad"
             name="orbRad"
-            min="100"
-            max="300"
-            step="20"
-            value={orbRad}
-            onChange={(e) => setOrbRad(Number(e.target.value))}
+            min="50"
+            max="100"
+            step="5"
+            value={planRad}
+            onChange={(e) => {
+              e.preventDefault();
+              setBodySize(moonRad, Number(e.target.value));
+            }}
           />
         </div>
         <div className="option">
@@ -154,11 +171,14 @@ const Secondary = ({ orbRad, setOrbRad }) => {
             type="range"
             id="orbRad"
             name="orbRad"
-            min="100"
-            max="300"
-            step="20"
-            value={orbRad}
-            onChange={(e) => setOrbRad(Number(e.target.value))}
+            min="10"
+            max="50"
+            step="5"
+            value={moonRad}
+            onChange={(e) => {
+              e.preventDefault();
+              setBodySize(Number(e.target.value), planRad);
+            }}
           />
         </div>
         <div className="option">
@@ -167,7 +187,10 @@ const Secondary = ({ orbRad, setOrbRad }) => {
               type="checkbox"
               id="showShadow"
               name="showShadow"
-              value="showShadow"
+              checked={showShadows}
+              onChange={(e) => {
+                toggleShadows();
+              }}
             ></input>
             <label htmlFor="showShadow">Show Shadows</label>
           </div>
@@ -176,9 +199,12 @@ const Secondary = ({ orbRad, setOrbRad }) => {
               type="checkbox"
               id="moveLight"
               name="moveLight"
-              value="moveLight"
+              checked={showLaser}
+              onChange={(e) => {
+                toggleLaser();
+              }}
             ></input>
-            <label htmlFor="moveLight">Move Light</label>
+            <label htmlFor="moveLight">Show Laser</label>
           </div>
         </div>
       </form>

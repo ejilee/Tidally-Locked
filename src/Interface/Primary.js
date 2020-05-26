@@ -45,6 +45,7 @@ const StyledPanel = styled.div`
       font-family: "Roboto", sans-serif;
       letter-spacing: 0.2em;
       text-transform: uppercase;
+      cursor: pointer;
       &:focus {
         border: 2px solid ${(props) => props.theme.colors.accentColor};
       }
@@ -112,6 +113,7 @@ const StyledPanel = styled.div`
         font-weight: normal;
         overflow: hidden;
         margin: 0%;
+        cursor: pointer;
 
         img {
           width: calc(100% - 4px);
@@ -126,10 +128,25 @@ const StyledPanel = styled.div`
   }
 `;
 
-const Primary = ({ rotPer, orbPer, tidLock, setRotOrbPer, resetAll }) => {
+const Primary = ({
+  rotPer,
+  orbPer,
+  tidLock,
+  paused,
+  setRotOrbPer,
+  resetAll,
+  pauseAll,
+  resumeAll,
+  forceLock,
+}) => {
   return (
     <StyledPanel className="app-ui-primary">
-      <form className="primaryOptions">
+      <form
+        className="primaryOptions"
+        onSubmit={(e) => {
+          e.preventDefault();
+        }}
+      >
         <div className="option option__firstRow">
           <div className="option option__number">
             <label htmlFor="rotPer">Rotational Period</label>
@@ -138,20 +155,35 @@ const Primary = ({ rotPer, orbPer, tidLock, setRotOrbPer, resetAll }) => {
                 type="number"
                 id="rotPer"
                 name="rotPer"
-                min="0"
+                min="1"
                 max="100"
                 value={rotPer}
-                onChange={(e) => setRotOrbPer(Number(e.target.value), orbPer)}
+                onChange={(e) => {
+                  e.preventDefault();
+                  setRotOrbPer(Number(e.target.value), orbPer);
+                }}
               />
               <div className="number__control">
-                <button className="btn__inc">
+                <button
+                  className="btn__inc"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setRotOrbPer(Number(rotPer + 1), orbPer);
+                  }}
+                >
                   <img
                     src={symInc}
                     className="btnIncImg"
                     alt="click to increment by one"
                   />
                 </button>
-                <button className="btn__dec">
+                <button
+                  className="btn__dec"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setRotOrbPer(Number(rotPer - 1), orbPer);
+                  }}
+                >
                   <img
                     src={symDec}
                     className="btnDecImg"
@@ -183,20 +215,35 @@ const Primary = ({ rotPer, orbPer, tidLock, setRotOrbPer, resetAll }) => {
                 type="number"
                 id="orbPer"
                 name="orbPer"
-                min="0"
+                min="1"
                 max="100"
                 value={orbPer}
-                onChange={(e) => setRotOrbPer(rotPer, Number(e.target.value))}
+                onChange={(e) => {
+                  e.preventDefault();
+                  setRotOrbPer(rotPer, Number(e.target.value));
+                }}
               />
               <div className="number__control">
-                <button className="btn__inc">
+                <button
+                  className="btn__inc"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setRotOrbPer(rotPer, Number(orbPer + 1));
+                  }}
+                >
                   <img
                     src={symInc}
                     className="btnIncImg"
                     alt="click to increment by one"
                   />
                 </button>
-                <button className="btn__dec">
+                <button
+                  className="btn__dec"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setRotOrbPer(rotPer, Number(orbPer - 1));
+                  }}
+                >
                   <img
                     src={symDec}
                     className="btnDecImg"
@@ -209,14 +256,40 @@ const Primary = ({ rotPer, orbPer, tidLock, setRotOrbPer, resetAll }) => {
         </div>
         <div className="option option__secondRow">
           <button
-            onClick={() => {
+            onClick={(e) => {
+              e.preventDefault();
               resetAll();
             }}
           >
             RESET
           </button>
-          <button>PAUSE</button>
-          <button>FORCE</button>
+          {paused ? (
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                resumeAll();
+              }}
+            >
+              RESUME
+            </button>
+          ) : (
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                pauseAll();
+              }}
+            >
+              PAUSE
+            </button>
+          )}
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              forceLock();
+            }}
+          >
+            FORCE
+          </button>
         </div>
       </form>
     </StyledPanel>

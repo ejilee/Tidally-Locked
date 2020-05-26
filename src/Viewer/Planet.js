@@ -26,14 +26,14 @@ const PlanetLight = styled.div`
   left: 0;
 `;
 
-const Planet = ({ planRad, sunDir }) => {
+const Planet = ({ planRad, sunDir, showShadows, moveLight }) => {
   return (
     <div className="planetContainer">
       <PlanetBody planRad={planRad * 2}>
-        <PlanetLight sunDir={sunDir} />
+        {showShadows ? <PlanetLight sunDir={sunDir} /> : ""}
       </PlanetBody>
     </div>
   );
 };
 
-export default Planet;
+export default React.memo(Planet);

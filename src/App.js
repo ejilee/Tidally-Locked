@@ -13,8 +13,11 @@ const initAppState = {
   planRad: 50,
   sunDir: 100,
   tidLock: true,
+  paused: false,
   statusOn: false,
   statusMessage: "",
+  showShadows: true,
+  showLaser: true,
 };
 
 function appStateReducer(appState, action) {
@@ -31,13 +34,29 @@ function appStateReducer(appState, action) {
       return { ...appState, planRad: action.planRad };
     case "SUN_DIRECTION":
       return { ...appState, sunDir: action.sunDir };
+    case "SHADOW_TOGGLE":
+      return { ...appState, showShadows: !appState.showShadows };
+    case "LASER_TOGGLE":
+      return { ...appState, showLaser: !appState.showLaser };
     case "SET_TIDLOCK_STATE":
       return { ...appState, tidLock: action.tidLockState };
+    case "FORCE_LOCK":
+      return { ...appState, orbPer: appState.rotPer };
+    case "PAUSE_ALL":
+      return {
+        ...appState,
+        paused: true,
+      };
+    case "RESUME_ALL":
+      return {
+        ...appState,
+        paused: false,
+      };
     case "STATUS_MESSAGE":
       return {
         ...appState,
-        statusOn: action.stat[0],
-        statusMessage: action.stat[1],
+        statusOn: action.message[0],
+        statusMessage: action.message[1],
       };
     case "RESET_ALL":
       return initAppState;
@@ -53,8 +72,12 @@ function App() {
   );
 
   const setRotOrbPer = useCallback((rotPer, orbPer) => {
-    dispatchAppState({ type: "ROTATIONAL_PERIOD", rotPer });
-    dispatchAppState({ type: "ORBITAL_PERIOD", orbPer });
+    if (rotPer > 0 && rotPer <= 100) {
+      dispatchAppState({ type: "ROTATIONAL_PERIOD", rotPer });
+    }
+    if (orbPer > 0 && orbPer <= 100) {
+      dispatchAppState({ type: "ORBITAL_PERIOD", orbPer });
+    }
     let tidLockState = rotPer === orbPer ? true : false;
     dispatchAppState({ type: "SET_TIDLOCK_STATE", tidLockState });
   }, []);
@@ -73,11 +96,43 @@ function App() {
   }, []);
 
   const setStatusMessage = useCallback((stat) => {
-    dispatchAppState({ type: "STATUS_MESSAGE", stat });
+    const message = stat;
+    dispatchAppState({ type: "STATUS_MESSAGE", message });
   }, []);
 
-  const resetAll = useCallback((stat) => {
-    dispatchAppState({ type: "RESET_ALL", stat });
+  const resetAll = useCallback(() => {
+    dispatchAppState({ type: "RESUME_ALL" });
+    dispatchAppState({ type: "RESET_ALL" });
+    const message = [true, "reset to default"];
+    dispatchAppState({ type: "STATUS_MESSAGE", message });
+  }, []);
+
+  const pauseAll = useCallback(() => {
+    dispatchAppState({ type: "PAUSE_ALL" });
+    const message = [true, "pause all animation"];
+    dispatchAppState({ type: "STATUS_MESSAGE", message });
+  }, []);
+
+  const resumeAll = useCallback(() => {
+    dispatchAppState({ type: "RESUME_ALL" });
+    const message = [true, "resume all animation"];
+    dispatchAppState({ type: "STATUS_MESSAGE", message });
+  }, []);
+
+  const forceLock = useCallback(() => {
+    dispatchAppState({ type: "FORCE_LOCK" });
+    const message = [true, "forcing tidal locking"];
+    dispatchAppState({ type: "STATUS_MESSAGE", message });
+    const tidLockState = true;
+    dispatchAppState({ type: "SET_TIDLOCK_STATE", tidLockState });
+  }, []);
+
+  const toggleShadows = useCallback(() => {
+    dispatchAppState({ type: "SHADOW_TOGGLE" });
+  }, []);
+
+  const toggleLaser = useCallback(() => {
+    dispatchAppState({ type: "LASER_TOGGLE" });
   }, []);
 
   return (
@@ -90,6 +145,13 @@ function App() {
           setRotOrbPer={setRotOrbPer}
           setOrbRad={setOrbRad}
           resetAll={resetAll}
+          pauseAll={pauseAll}
+          resumeAll={resumeAll}
+          forceLock={forceLock}
+          setBodySize={setBodySize}
+          setSunDirection={setSunDirection}
+          toggleShadows={toggleShadows}
+          toggleLaser={toggleLaser}
         />
         <Footer />
       </div>

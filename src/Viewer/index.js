@@ -24,8 +24,11 @@ const Viewer = ({ appState, setStatusMessage }) => {
     planRad,
     sunDir,
     tidLock,
+    paused,
     statusOn,
     statusMessage,
+    showShadows,
+    showLaser,
   } = appState;
 
   useEffect(() => {
@@ -46,8 +49,11 @@ const Viewer = ({ appState, setStatusMessage }) => {
         moonRad={moonRad}
         sunDir={sunDir}
         tidLock={tidLock}
+        paused={paused}
+        showShadows={showShadows}
+        showLaser={showLaser}
       />
-      <Planet planRad={planRad} sunDir={sunDir} />
+      <Planet planRad={planRad} sunDir={sunDir} showShadows={showShadows} />
       <Information />
       {statusOn ? (
         <Status
