@@ -1,49 +1,207 @@
-@import url("https://fonts.googleapis.com/css?family=Bree+Serif&display=swap");
+@mixin mdScreen {
+  @media (min-width: 601px) {
+    @content;
+  }
+}
+@mixin lgScreen {
+  @media (min-width: 991px) {
+    @content;
+  }
+}
 
 html {
-    box-sizing: border-box;
-    overflow-y: overlay;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: #222;
+  color: #f9f9f9;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .App {
-    min-height: 100vh;
-    font-size: 1rem;
-    background: #222;
-    color: #fff;
-    padding: 20px;
+  max-width: 1280px;
+  padding: 56px 16px;
+  margin: 0 auto;
+  display: grid;
+  gap: 16px;
+  justify-items: stretch;
+  align-items: stretch;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "header"
+    "view"
+    "ui"
+    "footer";
+
+  @include lgScreen {
+    grid-template-columns: auto 380px;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "header header"
+      "view ui"
+      "footer";
+  }
 }
 
-.logoImg {
+.app-header {
+  grid-area: header;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+
+  @include lgScreen {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+  }
+
+  .logoImg {
     height: 4rem;
-    pointer-events: none;
-    margin-left: 10px;
-    margin-right: 12px;
-}
+    margin: 0 0 1rem 0;
 
-.logoText {
+    @include lgScreen {
+      margin: 0 1rem 0 0;
+    }
+  }
+
+  .titleText {
     margin: 0;
-    font-size: 2rem;
-    font-family: "Bree Serif", serif;
-    letter-spacing: 0.1rem;
-    color: #eee;
+    font-size: 1.5rem;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
 }
 
-header,
-section,
-footer {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+.app-view {
+  grid-area: view;
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+
+  @include lgScreen {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
 }
 
-.App-header {
-    display: flex;
-    margin-bottom: 10px;
-    margin-top: 30px;
+.app-ui {
+  grid-area: ui;
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
+
+  @include lgScreen {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
 }
 
-.App-footer {
-    font-size: 0.8em;
-    margin-top: 20px;
-    color: #666;
+.app-footer {
+  grid-area: footer;
+  grid-column: 1 / 2;
+  grid-row: 4 / 5;
+  justify-self: center;
+
+  @include lgScreen {
+    grid-column: 1 / 3;
+    grid-row: 3 / 4;
+    justify-self: end;
+  }
+
+  font-size: 0.75em;
+  color: #666;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 20px;
+  margin: 0;
+  background: transparent;
+}
+input[type="range"]:focus {
+  outline: none;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  animate: 200ms;
+  background: #ababab;
+}
+input[type="range"]::-webkit-slider-thumb {
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  height: 20px;
+  width: 20px;
+  border-radius: 10px;
+  background: #333333;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -8px;
+}
+input[type="range"]:focus::-webkit-slider-runnable-track {
+  background: #0037ff;
+}
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  animate: 200ms;
+  background: #ababab;
+}
+input[type="range"]::-moz-range-thumb {
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  height: 20px;
+  width: 20px;
+  border-radius: 10px;
+  background: #333333;
+  cursor: pointer;
+  margin-top: 0;
+  border: 0;
+}
+input[type="range"]::-ms-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  animate: 200ms;
+  background: transparent;
+  border-color: transparent;
+  border-width: 8px 0;
+  color: transparent;
+}
+input[type="range"]::-ms-fill-lower {
+  background: #ababab;
+}
+input[type="range"]::-ms-fill-upper {
+  background: #ababab;
+}
+input[type="range"]::-ms-thumb {
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  height: 20px;
+  width: 20px;
+  border-radius: 10px;
+  background: #333333;
+  cursor: pointer;
+  margin-top: 0;
+}
+input[type="range"]:focus::-ms-fill-lower {
+  background: #0037ff;
+}
+input[type="range"]:focus::-ms-fill-upper {
+  background: #0037ff;
 }
