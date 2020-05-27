@@ -1,9 +1,13 @@
 import React, { useReducer, useCallback } from "react";
 import Theme from "./theme";
 import "./App.scss";
+import ReactGA from "react-ga";
 import { Header, Footer } from "./Layout";
 import Viewer from "./Viewer";
 import Interface from "./Interface";
+
+ReactGA.initialize("UA-167751422-1");
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 const initAppState = {
   rotPer: 20,
