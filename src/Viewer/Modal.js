@@ -12,7 +12,7 @@ const StyledModal = styled.div`
   padding: 24px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   color: ${(props) => props.theme.colors.textGray};
   transition: opacity linear 300ms;
 
@@ -28,6 +28,7 @@ const StyledModal = styled.div`
     display: block;
     z-index: 3000;
     max-width: 800px;
+    margin-top: 140px;
     padding: 16px;
     background-color: ${(props) => props.theme.colors.offWhite};
     border: 1px solid ${(props) => props.theme.colors.accentColor};
@@ -64,6 +65,20 @@ const StyledModal = styled.div`
         }
       }
     }
+
+    .box-body {
+      line-height: 1.5rem;
+      .textAccent,
+      .textBoxed {
+        padding: 0.2rem 0.5rem;
+      }
+      .textAccent {
+        font-weight: bold;
+      }
+      .textBoxed {
+        border: 1px solid ${(props) => props.theme.colors.lightGray};
+      }
+    }
   }
 
   .box-backdrop {
@@ -85,13 +100,11 @@ const Modal = ({ modalState, toggleModal }) => {
 
   // when component mounts...
   useEffect(() => {
-    console.log("modal mounted, fading in");
     setFadeType("in");
   }, []);
 
   // when backdrop or x is clicked...
   const closeModal = (e) => {
-    console.log("closing modal, fading out");
     e.preventDefault();
     setFadeType("out");
   };
@@ -121,53 +134,54 @@ const Modal = ({ modalState, toggleModal }) => {
           </div>
           <div className="box-body">
             <p>
-              [ tidallylocked.com ] is a visual simulator for the phenomenon
-              known as 'tidal locking' which can occur between two astronomical
-              bodies. It occurs when the amount of time it takes for a moon to
-              revolve around a planet is the same as the amount of time it takes
-              for it to rotate on it's own axis. When this happens, the moon
-              appears to be 'facing' the planet with one side all the time. This
-              is why we can only observe one side of the Moon from the Earth.
+              <span className="textBoxed">tidallylocked.com</span> is a visual
+              simulator for the phenomenon known as{" "}
+              <span className="textAccent">tidal locking</span> which occurs
+              between two astronomical bodies. Please refer to the description
+              in the control panel or the wiki article linked therein for a more
+              detailed definition.
             </p>
             <p>
-              This web app was made with hopes of making the relationship
-              between the rotational period and the orbital period visually
-              clearer to see. You can adjust the rotational period (the amount
+              This web app was made in hopes of illustrating how the alignment
+              of the Moon's rotational period with the orbital period results in
+              the Moon perpetually facing the Earth. In the control panel, you
+              can adjust the{" "}
+              <span className="textAccent">rotational period</span> (the amount
               of time it takes for the moon to rotate once on it's own axis) and
-              the orbital period (the amount the time it takes for the moon to
-              rotate around the Earth once) and see whether the little triangle
-              (consider it like a 'nose' on one face of the moon) faces or
-              doesn't face the Earth. When it is always facing the Earth, you
-              will be able to see a thin red line that indicates that the two
-              bodies are tidally locked. Imagine standing anywhere on that
-              Earth, and you will only be able to see the 'nose' side of the
-              Moon.
+              the <span className="textAccent">orbital period</span> (the amount
+              the time it takes for the moon to rotate around the Earth once)
+              and see whether the little triangle (consider it to be the 'nose'
+              on one face of the moon) faces or doesn't face the Earth. When it
+              is always facing the Earth, you will be able to see a thin red
+              line that indicates that the two bodies are tidally locked.
+              Imagine standing anywhere on that Earth, and you will only be able
+              to see the 'nose' side of the Moon.
             </p>
             <p>
-              This web app was made as a side project by{" "}
+              This web app was made as a side project by Yeji Lee{" "}
               <a
                 href="https://weiji.io"
                 target="_blank"
                 title="link to blog"
                 rel="noopener noreferrer"
               >
-                Yeji Lee
+                (link to blog)
               </a>{" "}
               in hopes of helping other people understand a concept that was
-              difficult for her to understand without visual guidance. You can
-              go to the project{" "}
+              initially difficult to understand in words only. You can go to the
+              project repository{" "}
               <a
                 href="https://github.com/ejilee/Tidally-Locked"
                 target="_blank"
                 title="link to repository"
                 rel="noopener noreferrer"
               >
-                repository
+                (link to repo)
               </a>{" "}
-              to see how it works, suggest changes (always welcomed and always
-              helpful), address issues or even contribute code! You are welcomed
-              to use this site anytime as a reference and a learning tool for
-              teaching and learning about SPACE!
+              to see how it works, suggest changes, address issues or even
+              contribute code! (it is built on React & styled components mostly)
+              You are welcomed to use this site anytime as a reference and a
+              learning tool for teaching and learning about SPACE!
             </p>
           </div>
         </div>

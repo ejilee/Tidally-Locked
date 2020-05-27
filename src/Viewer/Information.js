@@ -30,7 +30,6 @@ const StyledBtn = styled.button`
 const Information = () => {
   const [modalState, setModalState] = useState(false);
   const toggleModal = () => {
-    console.log("toggs");
     setModalState(!modalState);
   };
   return (

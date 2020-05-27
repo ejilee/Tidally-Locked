@@ -221,3 +221,16 @@ input[type="range"]:focus::-ms-fill-lower {
 input[type="range"]:focus::-ms-fill-upper {
   background: #0037ff;
 }
+
+a:link {
+  color: #0037ff;
+}
+
+a:visited {
+  color: #0037ff;
+}
+
+a:hover,
+a:active {
+  color: #ff003d;
+}
