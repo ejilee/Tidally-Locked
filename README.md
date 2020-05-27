@@ -1,6 +1,4 @@
-<p align="center">
 ![project name card with logo](card.png)
-</p>
 
 ## What is this?
 
