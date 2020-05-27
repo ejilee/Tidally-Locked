@@ -4,14 +4,14 @@ import styled from "styled-components";
 const StyledPanel = styled.div`
   padding: 2rem 1.5rem;
   flex: 1 1 auto;
-  width: calc(100% - 3rem);
+  width: 100%;
   font-size: 0.9rem;
   line-height: 1.5rem;
   @media ${(props) => props.theme.threshold.tablet} {
     width: calc(50% - 3rem - 1px);
   }
   @media ${(props) => props.theme.threshold.desktop} {
-    width: calc(100% - 3rem);
+    width: 100%;
   }
 
   .option {
@@ -22,14 +22,15 @@ const StyledPanel = styled.div`
     align-items: center;
     margin-bottom: 1.5rem;
 
+    &.option--leftalign {
+      justify-content: flex-start;
+    }
+
     &:last-child {
       margin-bottom: 0;
       margin-top: 2rem;
     }
 
-    label {
-      width: 7rem;
-    }
     input[type="range"] {
       width: calc(100% - 7.5rem);
     }
@@ -46,6 +47,7 @@ const StyledPanel = styled.div`
       position: relative;
       display: inline-block;
       padding-left: 1.8rem;
+      margin-right: 2rem;
     }
 
     .option__check label::before,
@@ -181,7 +183,7 @@ const Secondary = ({
             }}
           />
         </div>
-        <div className="option">
+        <div className="option option--leftalign">
           <div className="option__check">
             <input
               type="checkbox"

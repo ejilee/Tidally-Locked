@@ -9,6 +9,7 @@ const StyledModal = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
+  padding: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,8 +27,7 @@ const StyledModal = styled.div`
   .box-wrapper {
     display: block;
     z-index: 3000;
-    width: 600px;
-    max-width: calc(100% - 96px);
+    max-width: 800px;
     padding: 16px;
     background-color: ${(props) => props.theme.colors.offWhite};
     border: 1px solid ${(props) => props.theme.colors.accentColor};

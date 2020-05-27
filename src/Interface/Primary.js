@@ -8,14 +8,13 @@ import lockIcon_off from "./lockIcon_off.svg";
 const StyledPanel = styled.div`
   padding: 2rem 1.5rem;
   flex: 1 1 auto;
-  width: calc(100% - 3rem);
-  min-width: 336px;
+  width: 100%;
   line-height: 1.5rem;
   @media ${(props) => props.theme.threshold.tablet} {
     width: calc(50% - 3rem - 1px);
   }
   @media ${(props) => props.theme.threshold.desktop} {
-    width: calc(100% - 3rem);
+    width: 100%;
   }
 
   .option__firstRow {
@@ -34,6 +33,7 @@ const StyledPanel = styled.div`
     justify-content: space-between;
 
     button {
+      padding: 0;
       height: 40px;
       width: 30%;
       background-color: ${(props) => props.theme.colors.uiGray};
@@ -57,6 +57,14 @@ const StyledPanel = styled.div`
     height: 24px;
     align-self: flex-end;
     margin-bottom: 1.75rem;
+
+    @media (max-width: 360px) {
+      display: none;
+    }
+
+    @media (min-width: 361px) {
+      display: block;
+    }
   }
 
   .option__number {
@@ -82,6 +90,9 @@ const StyledPanel = styled.div`
         text-align: center;
         border: none;
         box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+        @media ${(props) => props.theme.threshold.mobile} {
+          width: 80px;
+        }
       }
       /* Chrome, Safari, Edge, Opera */
       input::-webkit-outer-spin-button,
@@ -102,22 +113,20 @@ const StyledPanel = styled.div`
       padding: 0;
       .btn__inc,
       .btn__dec {
+        font-size: 0;
         width: 32px;
         height: 32px;
         background-color: ${(props) => props.theme.colors.uiGray};
         border-radius: 16px;
         border: none;
-        color: ${(props) => props.theme.colors.offWhite};
-        font-size: 2rem;
         line-height: 0;
-        font-weight: normal;
         overflow: hidden;
         margin: 0%;
         cursor: pointer;
 
         img {
-          width: calc(100% - 4px);
-          height: calc(100% - 4px);
+          width: 16px;
+          height: 16px;
           margin: 2px;
         }
       }

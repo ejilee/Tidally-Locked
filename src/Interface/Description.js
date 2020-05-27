@@ -4,7 +4,7 @@ import styled from "styled-components";
 const StyledPanel = styled.div`
   padding: 2rem 1.5rem;
   /* flex: 1 0 auto; */
-  width: calc(100% - 3rem);
+  /* width: calc(100% - 3rem); */
 `;
 
 const Description = () => {

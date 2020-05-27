@@ -17,7 +17,7 @@ const theme = {
   },
   threshold: {
     mobile: "(max-width: 600px)",
-    tablet: "(min-width: 601px)",
+    tablet: "(min-width: 760px)",
     desktop: "(min-width: 991px)",
   },
 };
