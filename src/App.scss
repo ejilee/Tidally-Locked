@@ -77,12 +77,15 @@ body {
     justify-content: flex-start;
   }
 
-  .logoImg {
-    height: 4rem;
-    margin: 0 0 1rem 0;
+  .logo {
+    cursor: pointer;
+    .logoImg {
+      height: 4rem;
+      margin: 0 0 1rem 0;
 
-    @include lgScreen {
-      margin: 0 1rem 0 0;
+      @include lgScreen {
+        margin: 0 1rem 0 0;
+      }
     }
   }
 
