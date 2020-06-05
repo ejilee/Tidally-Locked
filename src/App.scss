@@ -234,3 +234,11 @@ a:hover,
 a:active {
   color: #ff003d;
 }
+
+input[type="number"]:focus {
+  outline: 2px solid #0037ff;
+}
+
+button:focus {
+  outline: 2px solid #0037ff;
+}
