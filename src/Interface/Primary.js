@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import AppContext from '../context';
 import symDec from "./symDec.svg";
 import symInc from "./symInc.svg";
 import lockIcon_on from "./lockIcon_on.svg";
@@ -131,17 +132,12 @@ const StyledPanel = styled.div`
   }
 `;
 
-const Primary = ({
-  rotPer,
-  orbPer,
-  tidLock,
-  paused,
-  setRotOrbPer,
-  resetAll,
-  pauseAll,
-  resumeAll,
-  forceLock,
-}) => {
+const Primary = () => {
+
+  const { state, actions } = useContext(AppContext);
+  const { rotPer, orbPer, tidLock, paused } = state.appState;
+  const { setRotOrbPer, resetAll, pauseAll, resumeAll, forceLock } = actions;
+
   return (
     <StyledPanel className="app__ui--primary">
       <form

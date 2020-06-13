@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import AppContext from '../context';
 
 const StyledMoon = styled.div`
   .moon__self {
@@ -85,17 +86,11 @@ const StyledMoon = styled.div`
   }
 `;
 
-const Moon = ({
-  rotPer,
-  orbPer,
-  orbRad,
-  moonRad,
-  sunDir,
-  tidLock,
-  paused,
-  showShadows,
-  showLaser,
-}) => {
+const Moon = () => {
+
+  const { state } = useContext(AppContext);
+  const { rotPer, orbPer, orbRad, moonRad, sunDir, tidLock, paused, showShadows, showLaser } = state.appState;
+
   const animationState = paused ? "paused" : "running";
 
   const StyledRevolution = styled.div`

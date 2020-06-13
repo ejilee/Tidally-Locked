@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import AppContext from '../context';
 
 const StyledOrbit = styled.div`
   position: absolute;
@@ -12,8 +13,9 @@ const StyledOrbit = styled.div`
   left: calc(50% - ${(props) => props.orbRad + 2 + "px" || "50% - 75px"});
 `;
 
-const Orbit = ({ orbRad }) => {
-  return <StyledOrbit orbRad={orbRad} className="orbit__self" />;
+const Orbit = () => {
+  const { state } = useContext(AppContext);
+  return <StyledOrbit orbRad={state.appState.orbRad} className="orbit__self" />;
 };
 
 export default React.memo(Orbit);

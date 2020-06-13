@@ -34,15 +34,16 @@ const StyledStatus = styled.div`
   animation-timing-function: linear;
 `;
 
-const Status = ({ statusMessage, setStatusMessage }) => {
+const Status = ({ message, removeStatusMessage}) => {
+
   useEffect(() => {
     const timer = setTimeout(() => {
-      setStatusMessage([false, ""]);
+      removeStatusMessage();
     }, 3000);
     return () => clearTimeout(timer);
-  }, [setStatusMessage]);
+  }, [removeStatusMessage]);
 
-  return <StyledStatus className="statusbar">{statusMessage}</StyledStatus>;
+return <StyledStatus className="statusbar">{message}</StyledStatus>;
 };
 
 export default React.memo(Status);

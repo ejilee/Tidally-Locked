@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import AppContext from '../context';
 
 const PlanetBody = styled.div`
   position: absolute;
@@ -26,7 +27,9 @@ const PlanetLight = styled.div`
   left: 0;
 `;
 
-const Planet = ({ planRad, sunDir, showShadows, moveLight }) => {
+const Planet = () => {
+  const { state } = useContext(AppContext);
+  const { planRad, sunDir, showShadows } = state.appState;
   return (
     <div className="planet__self">
       <PlanetBody planRad={planRad * 2} className="planet__body">

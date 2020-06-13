@@ -51,58 +51,12 @@ const StyledInterface = styled.section`
   }
 `;
 
-const Interface = ({
-  appState,
-  setRotOrbPer,
-  setOrbRad,
-  resetAll,
-  pauseAll,
-  resumeAll,
-  forceLock,
-  setBodySize,
-  setSunDirection,
-  toggleShadows,
-  toggleLaser,
-}) => {
-  const {
-    rotPer,
-    orbPer,
-    orbRad,
-    moonRad,
-    planRad,
-    sunDir,
-    tidLock,
-    paused,
-    showShadows,
-    showLaser,
-  } = appState;
+const Interface = () => {
   return (
     <StyledInterface className="app__ui">
-      <Primary
-        rotPer={rotPer}
-        orbPer={orbPer}
-        tidLock={tidLock}
-        paused={paused}
-        setRotOrbPer={setRotOrbPer}
-        resetAll={resetAll}
-        pauseAll={pauseAll}
-        resumeAll={resumeAll}
-        forceLock={forceLock}
-      />
+      <Primary />
       <div className="interface__divider--dynamic" />
-      <Secondary
-        orbRad={orbRad}
-        moonRad={moonRad}
-        planRad={planRad}
-        sunDir={sunDir}
-        showShadows={showShadows}
-        showLaser={showLaser}
-        setOrbRad={setOrbRad}
-        setBodySize={setBodySize}
-        setSunDirection={setSunDirection}
-        toggleShadows={toggleShadows}
-        toggleLaser={toggleLaser}
-      />
+      <Secondary />
       <div className="interface__divider--horizontal" />
       <Description />
     </StyledInterface>

@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import styled from "styled-components";
+import AppContext from '../context';
 import Orbit from "./Orbit";
 import Moon from "./Moon";
 import Planet from "./Planet";
@@ -15,51 +16,33 @@ const StyledSpace = styled.section`
   overflow: hidden;
 `;
 
-const Viewer = ({ appState, setStatusMessage }) => {
-  const {
-    rotPer,
-    orbPer,
-    orbRad,
-    moonRad,
-    planRad,
-    sunDir,
-    tidLock,
-    paused,
-    statusOn,
-    statusMessage,
-    showShadows,
-    showLaser,
-  } = appState;
+const Viewer = () => {
+
+  const { state } = useContext(AppContext);
+  const { rotPer, orbPer, statusMessage } = state.appState;
+
+  const [ messageState, setMessageState ] = useState(true);
 
   useEffect(() => {
     if (rotPer === orbPer) {
-      setStatusMessage([true, "TIDAL LOCKING!"]);
+      setMessageState(true);
     } else {
-      setStatusMessage([false, ""]);
+      setMessageState(false);
     }
-  }, [rotPer, orbPer, setStatusMessage]);
+  }, [rotPer, orbPer, statusMessage, setMessageState]);
+
+  const removeStatusMessage =  () => {
+    setMessageState(false);
+  }
 
   return (
     <StyledSpace className="app__viewer">
-      <Orbit orbRad={orbRad} />
-      <Moon
-        rotPer={rotPer}
-        orbPer={orbPer}
-        orbRad={orbRad}
-        moonRad={moonRad}
-        sunDir={sunDir}
-        tidLock={tidLock}
-        paused={paused}
-        showShadows={showShadows}
-        showLaser={showLaser}
-      />
-      <Planet planRad={planRad} sunDir={sunDir} showShadows={showShadows} />
+      <Orbit />
+      <Moon />
+      <Planet />
       <Information />
-      {statusOn ? (
-        <Status
-          statusMessage={statusMessage}
-          setStatusMessage={setStatusMessage}
-        />
+      {messageState ? (
+        <Status message={statusMessage} removeStatusMessage={removeStatusMessage} />
       ) : (
         ""
       )}

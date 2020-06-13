@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import AppContext from '../context';
 
 const StyledPanel = styled.div`
 
@@ -40,19 +41,12 @@ const StyledPanel = styled.div`
   }
 `;
 
-const Secondary = ({
-  orbRad,
-  moonRad,
-  planRad,
-  sunDir,
-  showShadows,
-  showLaser,
-  setOrbRad,
-  setBodySize,
-  setSunDirection,
-  toggleShadows,
-  toggleLaser,
-}) => {
+const Secondary = () => {
+
+  const { state, actions } = useContext(AppContext);
+  const { orbRad, moonRad, planRad, sunDir, showShadows, showLaser } = state.appState;
+  const { setOrbRad, setBodySize, setSunDirection, toggleShadows, toggleLaser } = actions;
+  
   return (
     <StyledPanel className="app__ui--secondary">
       <form>
