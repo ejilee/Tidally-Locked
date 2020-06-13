@@ -6,10 +6,12 @@ import lockIcon_on from "./lockIcon_on.svg";
 import lockIcon_off from "./lockIcon_off.svg";
 
 const StyledPanel = styled.div`
+
   padding: 2rem 1.5rem;
   flex: 1 1 auto;
   width: 100%;
   line-height: 1.5rem;
+
   @media ${(props) => props.theme.threshold.tablet} {
     width: calc(50% - 3rem - 1px);
   }
@@ -17,22 +19,98 @@ const StyledPanel = styled.div`
     width: 100%;
   }
 
-  .option__firstRow {
+  .ui__options--firstRow {
     width: 100%;
     display: flex;
     flex: row wrap;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1.5rem;
+
+    .option__number {
+      display: inline-block;
+
+      label {
+        width: 7rem;
+      }
+
+      .number__wrapper {
+        display: flex;
+        flex: row nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        margin-top: 0.5rem;
+
+        .number__box {
+          width: 100px;
+          height: 50px;
+          background-color: ${(props) => props.theme.colors.offWhite};
+          color: ${(props) => props.theme.colors.textGray};
+          font-size: 2.25rem;
+          text-align: center;
+          border: none;
+          box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+          @media ${(props) => props.theme.threshold.mobile} {
+            width: 80px;
+          }
+        }
+
+        .number__control {
+          display: flex;
+          flex-flow: column;
+          margin: 0 0 0 0.5rem;
+          padding: 0;
+
+          .control__button {
+            font-size: 0;
+            width: 32px;
+            height: 32px;
+            background-color: ${(props) => props.theme.colors.uiGray};
+            border-radius: 16px;
+            border: none;
+            line-height: 0;
+            overflow: hidden;
+            margin: 0;
+            cursor: pointer;
+
+            img {
+              width: 16px;
+              height: 16px;
+              margin: 2px;
+            }
+
+            &:last-child {
+              margin-top: 0.5rem;
+            }
+          }
+
+        }
+      }
+    }
+
+    .option__indicator {
+      width: 24px;
+      height: 24px;
+      align-self: flex-end;
+      margin-bottom: 1.75rem;
+
+      @media (max-width: 360px) {
+        display: none;
+      }
+
+      @media (min-width: 361px) {
+        display: block;
+      }
+    }
   }
 
-  .option__secondRow {
+  .ui__options--secondRow {
     width: 100%;
     display: flex;
     flex: row nowrap;
     justify-content: space-between;
 
-    button {
+    .option__button {
       padding: 0;
       height: 40px;
       width: 30%;
@@ -51,90 +129,6 @@ const StyledPanel = styled.div`
       }
     }
   }
-
-  .option__indicator--tidLock {
-    width: 24px;
-    height: 24px;
-    align-self: flex-end;
-    margin-bottom: 1.75rem;
-
-    @media (max-width: 360px) {
-      display: none;
-    }
-
-    @media (min-width: 361px) {
-      display: block;
-    }
-  }
-
-  .option__number {
-    display: inline-block;
-
-    label {
-      width: 7rem;
-    }
-
-    .number__input {
-      display: flex;
-      flex: row nowrap;
-      justify-content: flex-start;
-      align-items: center;
-      margin-top: 0.5rem;
-
-      input[type="number"] {
-        width: 100px;
-        height: 50px;
-        background-color: ${(props) => props.theme.colors.offWhite};
-        color: ${(props) => props.theme.colors.textGray};
-        font-size: 2.25rem;
-        text-align: center;
-        border: none;
-        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
-        @media ${(props) => props.theme.threshold.mobile} {
-          width: 80px;
-        }
-      }
-      /* Chrome, Safari, Edge, Opera */
-      input::-webkit-outer-spin-button,
-      input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-      }
-      /* Firefox */
-      input[type="number"] {
-        -moz-appearance: textfield;
-      }
-    }
-
-    .number__control {
-      display: flex;
-      flex-flow: column;
-      margin: 0 0 0 0.5rem;
-      padding: 0;
-      .btn__inc,
-      .btn__dec {
-        font-size: 0;
-        width: 32px;
-        height: 32px;
-        background-color: ${(props) => props.theme.colors.uiGray};
-        border-radius: 16px;
-        border: none;
-        line-height: 0;
-        overflow: hidden;
-        margin: 0%;
-        cursor: pointer;
-
-        img {
-          width: 16px;
-          height: 16px;
-          margin: 2px;
-        }
-      }
-      .btn__inc {
-        margin-bottom: 0.5rem;
-      }
-    }
-  }
 `;
 
 const Primary = ({
@@ -149,18 +143,18 @@ const Primary = ({
   forceLock,
 }) => {
   return (
-    <StyledPanel className="app-ui-primary">
+    <StyledPanel className="app__ui--primary">
       <form
-        className="primaryOptions"
         onSubmit={(e) => {
           e.preventDefault();
         }}
       >
-        <div className="option option__firstRow">
-          <div className="option option__number">
+        <div className="ui__options--firstRow">
+          <div className="option__number">
             <label htmlFor="rotPer">Rotational Period</label>
-            <div className="number__input">
+            <div className="number__wrapper">
               <input
+                className="number__box"
                 type="number"
                 id="rotPer"
                 name="rotPer"
@@ -174,7 +168,7 @@ const Primary = ({
               />
               <div className="number__control">
                 <button
-                  className="btn__inc"
+                  className="control__button"
                   onClick={(e) => {
                     e.preventDefault();
                     setRotOrbPer(Number(rotPer + 1), orbPer);
@@ -182,12 +176,11 @@ const Primary = ({
                 >
                   <img
                     src={symInc}
-                    className="btnIncImg"
                     alt="click to increment by one"
                   />
                 </button>
                 <button
-                  className="btn__dec"
+                  className="control__button"
                   onClick={(e) => {
                     e.preventDefault();
                     setRotOrbPer(Number(rotPer - 1), orbPer);
@@ -195,32 +188,32 @@ const Primary = ({
                 >
                   <img
                     src={symDec}
-                    className="btnDecImg"
                     alt="click to decrement by one"
                   />
                 </button>
               </div>
             </div>
           </div>
-          <div className="option__indicator--tidLock">
+          <div className="option__indicator">
             {tidLock ? (
               <img
                 src={lockIcon_on}
-                className="lockIcon lockIcon--on"
+                className="option__indicator__img--on"
                 alt="status currently IS tidal locked"
               />
             ) : (
               <img
                 src={lockIcon_off}
-                className="lockIcon lockIcon--off"
+                className="option__indicator__img--off"
                 alt="status currently NOT tidal locked"
               />
             )}
           </div>
-          <div className="option option__number">
+          <div className="option__number">
             <label htmlFor="orbPer">Orbital Period</label>
-            <div className="number__input">
+            <div className="number__wrapper">
               <input
+                className="number__box"
                 type="number"
                 id="orbPer"
                 name="orbPer"
@@ -234,7 +227,7 @@ const Primary = ({
               />
               <div className="number__control">
                 <button
-                  className="btn__inc"
+                  className="control__button"
                   onClick={(e) => {
                     e.preventDefault();
                     setRotOrbPer(rotPer, Number(orbPer + 1));
@@ -242,12 +235,11 @@ const Primary = ({
                 >
                   <img
                     src={symInc}
-                    className="btnIncImg"
                     alt="click to increment by one"
                   />
                 </button>
                 <button
-                  className="btn__dec"
+                  className="control__button"
                   onClick={(e) => {
                     e.preventDefault();
                     setRotOrbPer(rotPer, Number(orbPer - 1));
@@ -255,7 +247,6 @@ const Primary = ({
                 >
                   <img
                     src={symDec}
-                    className="btnDecImg"
                     alt="click to decrement by one"
                   />
                 </button>
@@ -263,8 +254,9 @@ const Primary = ({
             </div>
           </div>
         </div>
-        <div className="option option__secondRow">
+        <div className="ui__options--secondRow">
           <button
+            className="option__button"
             onClick={(e) => {
               e.preventDefault();
               resetAll();
@@ -274,6 +266,7 @@ const Primary = ({
           </button>
           {paused ? (
             <button
+              className="option__button"
               onClick={(e) => {
                 e.preventDefault();
                 resumeAll();
@@ -283,6 +276,7 @@ const Primary = ({
             </button>
           ) : (
             <button
+              className="option__button"
               onClick={(e) => {
                 e.preventDefault();
                 pauseAll();
@@ -292,6 +286,7 @@ const Primary = ({
             </button>
           )}
           <button
+            className="option__button"
             onClick={(e) => {
               e.preventDefault();
               forceLock();

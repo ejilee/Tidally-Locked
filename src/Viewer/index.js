@@ -40,7 +40,7 @@ const Viewer = ({ appState, setStatusMessage }) => {
   }, [rotPer, orbPer, setStatusMessage]);
 
   return (
-    <StyledSpace className="app-view">
+    <StyledSpace className="app__viewer">
       <Orbit orbRad={orbRad} />
       <Moon
         rotPer={rotPer}

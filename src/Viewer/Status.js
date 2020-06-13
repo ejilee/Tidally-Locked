@@ -42,7 +42,7 @@ const Status = ({ statusMessage, setStatusMessage }) => {
     return () => clearTimeout(timer);
   }, [setStatusMessage]);
 
-  return <StyledStatus>{statusMessage}</StyledStatus>;
+  return <StyledStatus className="statusbar">{statusMessage}</StyledStatus>;
 };
 
 export default React.memo(Status);

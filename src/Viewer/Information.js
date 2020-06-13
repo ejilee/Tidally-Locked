@@ -8,7 +8,6 @@ const StyledBtn = styled.button`
   background-repeat: no-repeat;
   border: none;
   padding: 0;
-  cursor: pointer;
   overflow: hidden;
   outline: none;
   position: absolute;
@@ -34,8 +33,8 @@ const Information = () => {
   };
   return (
     <div>
-      <StyledBtn onClick={toggleModal}>
-        <img src={infoIcon} className="infoIcon" alt="for more information" />
+      <StyledBtn onClick={toggleModal} className="fab__info">
+        <img src={infoIcon} className="fab__info__icon" alt="click for more information" />
       </StyledBtn>
       {modalState ? (
         <Modal modalState={modalState} toggleModal={toggleModal} />

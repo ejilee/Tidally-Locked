@@ -22,7 +22,7 @@ const StyledInterface = styled.section`
     flex-flow: column wrap;
   }
 
-  .app-ui-divider--dyn {
+  .interface__divider--dynamic {
     width: calc(100% - 4rem);
     border-bottom: 1px solid ${(props) => props.theme.colors.lightGray};
     border-right: 0;
@@ -44,7 +44,7 @@ const StyledInterface = styled.section`
     }
   }
 
-  .app-ui-divider--hor {
+  .interface__divider--horizontal {
     width: calc(100% - 4rem);
     border-bottom: 1px solid ${(props) => props.theme.colors.lightGray};
     align-self: center;
@@ -77,7 +77,7 @@ const Interface = ({
     showLaser,
   } = appState;
   return (
-    <StyledInterface className="app-ui">
+    <StyledInterface className="app__ui">
       <Primary
         rotPer={rotPer}
         orbPer={orbPer}
@@ -89,7 +89,7 @@ const Interface = ({
         resumeAll={resumeAll}
         forceLock={forceLock}
       />
-      <div className="app-ui-divider--dyn" />
+      <div className="interface__divider--dynamic" />
       <Secondary
         orbRad={orbRad}
         moonRad={moonRad}
@@ -103,7 +103,7 @@ const Interface = ({
         toggleShadows={toggleShadows}
         toggleLaser={toggleLaser}
       />
-      <div className="app-ui-divider--hor" />
+      <div className="interface__divider--horizontal" />
       <Description />
     </StyledInterface>
   );

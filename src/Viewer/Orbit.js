@@ -13,7 +13,7 @@ const StyledOrbit = styled.div`
 `;
 
 const Orbit = ({ orbRad }) => {
-  return <StyledOrbit orbRad={orbRad} />;
+  return <StyledOrbit orbRad={orbRad} className="orbit__self" />;
 };
 
 export default React.memo(Orbit);

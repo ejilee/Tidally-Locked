@@ -24,7 +24,7 @@ const StyledModal = styled.div`
     opacity: 0;
   }
 
-  .box-wrapper {
+  .modal__content {
     display: block;
     z-index: 3000;
     max-width: 800px;
@@ -35,19 +35,19 @@ const StyledModal = styled.div`
     border-radius: ${(props) => props.theme.spacing.borderRadius};
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.25);
 
-    .box-header {
+    .content__header {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
       margin-bottom: 16px;
 
-      .header-title {
+      .header__title {
         margin: 0;
         font-size: 1.5rem;
         font-weight: normal;
       }
 
-      .header-button {
+      .header__button {
         background-color: Transparent;
         background-repeat: no-repeat;
         border: none;
@@ -66,22 +66,12 @@ const StyledModal = styled.div`
       }
     }
 
-    .box-body {
+    .content__body {
       line-height: 1.5rem;
-      .textAccent,
-      .textBoxed {
-        padding: 0.2rem 0.5rem;
-      }
-      .textAccent {
-        font-weight: bold;
-      }
-      .textBoxed {
-        border: 1px solid ${(props) => props.theme.colors.lightGray};
-      }
     }
   }
 
-  .box-backdrop {
+  .modal__backdrop {
     background: rgba(0, 0, 0, 0.5);
     position: fixed;
     z-index: 2000;
@@ -125,14 +115,14 @@ const Modal = ({ modalState, toggleModal }) => {
         className={fadeType === "in" ? "fade-in" : "fade-out"}
         onTransitionEnd={doAfterFade}
       >
-        <div className="box-wrapper">
-          <div className="box-header">
-            <h1 className="header-title">Information</h1>
-            <button className="header-button" onClick={closeModal}>
+        <div className="modal__content">
+          <div className="content__header">
+            <h1 className="header__title">Information</h1>
+            <button className="header__button" onClick={closeModal}>
               X
             </button>
           </div>
-          <div className="box-body">
+          <div className="content__body">
             <p>
               <span className="textBoxed">tidallylocked.com</span> is a visual
               simulator for the phenomenon known as{" "}
@@ -185,7 +175,7 @@ const Modal = ({ modalState, toggleModal }) => {
             </p>
           </div>
         </div>
-        <div className="box-backdrop" onMouseDown={closeModal}></div>
+        <div className="modal__backdrop" onMouseDown={closeModal}></div>
       </StyledModal>,
       modalDom
     );

@@ -28,9 +28,9 @@ const PlanetLight = styled.div`
 
 const Planet = ({ planRad, sunDir, showShadows, moveLight }) => {
   return (
-    <div className="planetContainer">
-      <PlanetBody planRad={planRad * 2}>
-        {showShadows ? <PlanetLight sunDir={sunDir} /> : ""}
+    <div className="planet__self">
+      <PlanetBody planRad={planRad * 2} className="planet__body">
+        {showShadows ? <PlanetLight sunDir={sunDir} className="planet__shade" /> : ""}
       </PlanetBody>
     </div>
   );
